@@ -13,14 +13,13 @@ app.use((req, _, next) => {
     next()
 })
 
-app.use(express.static('./assets'))
+app.use(express.static('assets'))
 
 app.get('/movie/:id', (req, res) => {
     const id = req.params.id
     axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=${APIkey}&language=en-US`)
         .then(response => {
             res.render('movie', { movie: response.data })
-            console.log('response', response.data)
         })
 })
 app.get('/', (_, res) => {

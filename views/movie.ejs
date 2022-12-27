@@ -10,14 +10,15 @@
     <link rel="stylesheet" href="../css/style.css">
 </head>
 
-<body>
+<body class="detailBody">
     <header>
         <%- include('./partials/nav') -%>
     </header>
     <main class="detailPageMain">
-        <img src="https://image.tmdb.org/t/p/original/<%= movie.poster_path %>" alt="<% movie.title %> poster">
+        <img class="movieBanner" src="https://image.tmdb.org/t/p/original/<%= movie.poster_path %>"
+            alt="<% movie.title %> poster">
         <section>
-            <img src="../assets/img/star 1.png" alt="star">
+            <img class="starImg" src="../img/star1.png" alt="star">
             <p>
                 <span>
                     <%= movie.vote_average %>
