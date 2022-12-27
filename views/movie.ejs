@@ -11,12 +11,42 @@
 </head>
 
 <body>
-    <h1>Movie Magic</h1>
-    <p>
-        <%= movie.title %>
-    </p>
-
-
+    <header>
+        <%- include('./partials/nav') -%>
+    </header>
+    <main class="detailPageMain">
+        <img src="https://image.tmdb.org/t/p/original/<%= movie.poster_path %>" alt="<% movie.title %> poster">
+        <section>
+            <img src="../assets/img/star 1.png" alt="star">
+            <p>
+                <span>
+                    <%= movie.vote_average %>
+                </span> / 10
+            </p>
+            <p class="grayText">
+                <%= movie.vote_count %>
+            </p>
+        </section>
+        <section>
+            <h1>
+                <%= movie.title %>
+            </h1>
+            <p>
+                <%= movie.release_date %> Released
+            </p>
+            <div>
+                <% movie.genres.map((genre)=> { %>
+                    <p class="genreP">
+                        <%= genre.name %>
+                    </p>
+                    <% }) %>
+            </div>
+            <h2>Plot Summary</h2>
+            <p>
+                <%= movie.overview %>
+            </p>
+        </section>
+    </main>
 </body>
 
 </html>
