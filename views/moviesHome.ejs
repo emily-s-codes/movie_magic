@@ -17,17 +17,19 @@
         <h1>Movie Magic</h1>
         <section class="allMoviesGrid">
             <% movies.map((movie)=> { %>
-                <section class="singleMovieTile">
-                    <img src="https://image.tmdb.org/t/p/original/<%= movie.backdrop_path %>"
-                        alt="<%= movie.title %> poster">
-                    <p>
-                        <%= movie.title %>
-                    </p>
-                    <% if (movie.title !==movie.original_title) { %>
-                        <p>Original Title: <%= movie.original_title %>
+                <a href="./movie/<%-movie.id %>">
+                    <section class="singleMovieTile">
+                        <img src="https://image.tmdb.org/t/p/original/<%= movie.backdrop_path %>"
+                            alt="<%= movie.title %> poster">
+                        <p>
+                            <%= movie.title %>
                         </p>
-                        <% } %>
-                </section>
+                        <% if (movie.title !==movie.original_title) { %>
+                            <p>Original Title: <%= movie.original_title %>
+                            </p>
+                            <% } %>
+                    </section>
+                </a>
                 <% }) %>
         </section>
     </main>

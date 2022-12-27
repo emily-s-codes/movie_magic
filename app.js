@@ -15,11 +15,14 @@ app.use((req, _, next) => {
 
 app.use(express.static('./assets'))
 
-app.get('/movie/:name', (req, res) => {
-    const name = req.params.name
-    res.render('movie', { movie: { name } })
+app.get('/movie/:id', (req, res) => {
+    const id = req.params.id
+    axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=${APIkey}&language=en-US`)
+        .then(response => {
+            res.render('movie', { movie: response.data })
+            console.log('response', response.data)
+        })
 })
-
 app.get('/', (_, res) => {
     axios.get(`https://api.themoviedb.org/3/movie/top_rated?api_key=${APIkey}&language=en-US&page=1`)
         .then(response => {
