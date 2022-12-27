@@ -144,6 +144,11 @@ span {
     overflow: hidden;
 }
 
+.singleMovieTile img:hover {
+    -webkit-filter: grayscale(1);
+    filter: grayscale(1);
+}
+
 /* ================================
 DETAIL PAGE
 ================================ */
