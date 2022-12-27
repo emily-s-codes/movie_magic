@@ -9,7 +9,7 @@ const app = express()
 app.set('view engine', 'ejs')
 
 app.use((req, _, next) => {
-    console.log('new request:', req.method, req.url)
+    // console.log('new request:', req.method, req.url)
     next()
 })
 
@@ -20,11 +20,11 @@ app.get('/movie/:name', (req, res) => {
     res.render('movie', { movie: { name } })
 })
 
-// app.get('/movie', (_, res) => {
-//     axios.get(`https://api.themoviedb.org/3/movie/top_rated?api_key=${APIkey}&language=en-US&page=1`)
-//         .then(response => {
-//             res.render('movie', { movie: response.data.original_title })
-//         })
-// })
+app.get('/', (_, res) => {
+    axios.get(`https://api.themoviedb.org/3/movie/top_rated?api_key=${APIkey}&language=en-US&page=1`)
+        .then(response => {
+            res.render('moviesHome', { movies: response.data.results })
+        })
+})
 
 app.listen(PORT, () => console.log('Port', PORT))

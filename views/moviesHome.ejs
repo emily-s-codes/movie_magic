@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Magic - Home</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <header>
+
+    </header>
+    <main class="moviesHomeMain">
+        <h1>Movie Magic</h1>
+        <section class="allMoviesGrid">
+            <% movies.map((movie)=> { %>
+                <section class="singleMovieTile">
+                    <img src="https://image.tmdb.org/t/p/original/<%= movie.backdrop_path %>"
+                        alt="<%= movie.title %> poster">
+                    <p>
+                        <%= movie.title %>
+                    </p>
+                    <% if (movie.title !==movie.original_title) { %>
+                        <p>Original Title: <%= movie.original_title %>
+                        </p>
+                        <% } %>
+                </section>
+                <% }) %>
+        </section>
+    </main>
+</body>
+
+</html>

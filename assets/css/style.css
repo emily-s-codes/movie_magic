@@ -1,0 +1,59 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 10px;
+
+}
+
+@font-face {
+    font-family: "Poppins-Bold";
+    src: url("../fonts/Poppins-Bold.ttf");
+}
+
+@font-face {
+    font-family: "Poppins-Light";
+    src: url("../fonts/Poppins-Light.ttf");
+}
+
+@font-face {
+    font-family: "Poppins-Regular";
+    src: url("../fonts/Poppins-Regular.ttf");
+}
+
+h1 {
+    font-family: "Poppins-Bold", sans-serif;
+    font-size: 3rem;
+}
+
+p {
+    font-family: "Poppins-Regular", sans-serif;
+    font-size: 1.4rem;
+}
+
+.moviesHomeMain {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.allMoviesGrid {
+    margin: 50px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.singleMovieTile {
+    width: 200px;
+    height: 300px;
+}
+
+img {
+    border-radius: 10px;
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    object-position: top;
+    overflow: hidden;
+}
